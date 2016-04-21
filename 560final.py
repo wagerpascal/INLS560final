@@ -1,5 +1,7 @@
 import re
 
+##Setup
+
 def viewdictsetup(dict1, list1, list2):
     for rows1 in list1:
         try: 
@@ -11,20 +13,26 @@ def viewdictsetup(dict1, list1, list2):
                 continue
      
     for rows2 in list2:
-        try:
             if rows2[0] not in dict1:
                 dict1[rows2[0]] = [rows2[1]]
+                
             
             if rows2[0] in dict1: 
-                #print(rowsss[1])
-                #print(viewdict[rowsss[0]])
-                dict1[rows2[0]] = dict1[rows2[0]] + [rows2[1]]
+                try:
+                    dict1[rows2[0]] = dict1[rows2[0]] + [rows2[1]]
+                    print('hi')
+                    continue
                 
+                except:
+                    dict1[rows2[0]] = dict1[rows2[0]] + ['0']
+                    print('boo')
+                    continue
         
-        except:        
-            if rows2[0] not in dict1:
-                dict1[rows2[0]] = dict1[rows2[0]].append('0')
-            continue
+        # except:        
+        #     if rows2[0] not in dict1:
+        #         dict1[rows2[0]] = dict1[rows2[0]] + ['0']
+        #         print('hi')
+        #     continue
     
     return dict1
 
@@ -117,6 +125,24 @@ viewdictsetup(viewdict, view_list, view_list_2)
 commentdictsetup(commentdict, view_list, view_list_2)
 ratingdictsetup(ratingdict, view_list, view_list_2)
 
-#print(viewdict)
+print(viewdict)
 #print(commentdict)
-print(ratingdict)
+#print(ratingdict)
+
+## Find rate of viewcount growth
+#For now, we can do percentage increase
+
+viewrankdict = dict()
+lst = list(viewdict.keys())
+
+# for key in lst:
+#     templist = viewdict[key]
+#     try:
+#         percent = ((int(templist[1])-int(templist[0]))/ (int(templist[0])))*100
+#     #print(viewdict[key][1])
+#         print(percent)
+        
+    
+#     except:
+#         print('Missed')
+#         continue
