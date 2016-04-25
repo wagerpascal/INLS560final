@@ -132,6 +132,97 @@ def graphcomparebottom(bottomgraphlist,viewingdict, i):
     lines('Weeks', 'Views', 'Compare', "bye.png", xsize = 5, ysize = 3, lines = [graph4, graph5])
     return graph4, graph5
 
+def ratinghistogramsetup(ratingdictionary):
+    avgratinglist = []
+    avgratinghist = []
+    count1= 0
+    count2 = 0
+    count3 = 0
+    count4 = 0
+    count5 = 0
+    
+    for keys in ratingdictionary:
+        avgratinglist.append(ratingdictionary[keys])
+
+    avgratinglist = [[(float(j)) for j in i] for i in avgratinglist]
+    
+    for lists in avgratinglist:
+        #print(lists)
+        avgrating = sum(lists)/len(lists)
+        avgratinghist.append(avgrating)
+                
+    
+    for values in avgratinghist:
+        if values >= 0 and values < 1:
+            count1 = count1 + 1
+        if values >= 1 and values < 2:
+            count2 = count1 + 1
+        if values >= 2 and values < 3:
+            count3 = count3 + 1
+        if values >= 3 and values < 4:
+            count4 = count4 + 1
+        if values >= 4 and values < 5:
+            count5 = count5 + 1
+            
+    displaycount1 = int(count1/20)
+    displaycount2 = int(count2/20)
+    displaycount3 = int(count3/20)
+    displaycount4 = int(count4/20)
+    displaycount5 = int(count5/20)
+    print(count1)
+    print(count2)
+    
+    print("Count1" + ("*"*displaycount1))
+    print("Count2" + ("*"*displaycount2))
+    print("Count3" + ("*"*displaycount3))
+    print("Count4" + ("*"*displaycount4))
+    print("Count5" + ("*"*displaycount5))
+
+def commentdicthistsetup(): ################
+    cmtratinglist = []
+    cmtratinghist = []
+    count1= 0
+    count2 = 0
+    count3 = 0
+    count4 = 0
+    count5 = 0
+    
+    for keys in ratingdict:
+        cmtratinglist.append(commentdict[keys])
+
+    avgratinglist = [[(float(j)) for j in i] for i in avgratinglist]
+    
+    for lists in avgratinglist:
+        #print(lists)
+        avgrating = sum(lists)/len(lists)
+        avgratinghist.append(avgrating)
+                
+    
+    for values in avgratinghist:
+        if values >= 0 and values < 1:
+            count1 = count1 + 1
+        if values >= 1 and values < 2:
+            count2 = count1 + 1
+        if values >= 2 and values < 3:
+            count3 = count3 + 1
+        if values >= 3 and values < 4:
+            count4 = count4 + 1
+        if values >= 4 and values < 5:
+            count5 = count5 + 1
+            
+    displaycount1 = int(count1/20)
+    displaycount2 = int(count2/20)
+    displaycount3 = int(count3/20)
+    displaycount4 = int(count4/20)
+    displaycount5 = int(count5/20)
+    print(count1)
+    print(count2)
+    
+    print("Count1" + ("*"*displaycount1))
+    print("Count2" + ("*"*displaycount2))
+    print("Count3" + ("*"*displaycount3))
+    print("Count4" + ("*"*displaycount4))
+    print("Count5" + ("*"*displaycount5))
 
 
 with open('data1.txt') as d:
@@ -258,23 +349,57 @@ i = 0
 j = 0
 topgraphlist = [toptennamelist[9], toptennamelist[0]]
 bottomgraphlist = [bottomtennamelist[9], bottomtennamelist[0]]
-print(topgraphlist)
-# for keys in viewdict:
-#     for videoid in topgraphlist:
-#         if keys == videoid:
-#             graph1values = viewdict[keys]
-#             graph2 = [keys] + graph1values
-#             i = i+ 1
-#             if i == 1:
-#                 graph2values = viewdict[keys]
-#                 graph3 = [keys] + graph2values
 
-# for keys in viewdict:
-#     for videoid in bottomgraphlist:
-#         if keys == videoid:
-#             graph3values = viewdict[keys]
-            
 graphcomparetop(topgraphlist, viewdict, i)
-# lines('Weeks', 'Views', 'Compare',"hi.png", xsize = 5, ysize = 3, lines = [graph2, graph3])
 graphcomparebottom(bottomgraphlist, viewdict, j)
-# lines('Weeks', 'Views', 'Compare', "bye.png", xsize = 5, ysize = 3, lines = [graph4, graph5])
+
+## Histograms
+
+#Here to graph the rating distribution
+# avgratinglist = []
+# avgratinghist = []
+# testname = 'Rp198k984Yw'
+# for keys in ratingdict:
+#         avgratinglist.append(ratingdict[keys])
+
+# avgratinglist = [[(float(j)) for j in i] for i in avgratinglist]
+
+# for lists in avgratinglist:
+#     #print(lists)
+#     avgrating = sum(lists)/len(lists)
+#     avgratinghist.append(avgrating)
+            
+
+# count1= 0
+# count2 = 0
+# count3 = 0
+# count4 = 0
+# count5 = 0
+
+# for values in avgratinghist:
+#     if values >= 0 and values < 1:
+#         count1 = count1 + 1
+#     if values >= 1 and values < 2:
+#         count2 = count1 + 1
+#     if values >= 2 and values < 3:
+#         count3 = count3 + 1
+#     if values >= 3 and values < 4:
+#         count4 = count4 + 1
+#     if values >= 4 and values < 5:
+#         count5 = count5 + 1
+        
+# displaycount1 = int(count1/20)
+# displaycount2 = int(count2/20)
+# displaycount3 = int(count3/20)
+# displaycount4 = int(count4/20)
+# displaycount5 = int(count5/20)
+# print(count1)
+# print(count2)
+
+# print("Count1" + ("*"*displaycount1))
+# print("Count2" + ("*"*displaycount2))
+# print("Count3" + ("*"*displaycount3))
+# print("Count4" + ("*"*displaycount4))
+# print("Count5" + ("*"*displaycount5))
+
+ratinghistogramsetup(ratingdict)
