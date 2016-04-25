@@ -1,6 +1,7 @@
 import re
 import numpy
 import matplotlib
+import time
 
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
@@ -178,9 +179,9 @@ def ratinghistogramsetup(ratingdictionary):
     print("Count4" + ("*"*displaycount4))
     print("Count5" + ("*"*displaycount5))
 
-def commentdicthistsetup(): ################
-    cmtratinglist = []
-    cmtratinghist = []
+def commentdicthistsetup(cmtdict): ################
+    avgcmtlist = []
+    avgcmthist = []
     count1= 0
     count2 = 0
     count3 = 0
@@ -188,33 +189,33 @@ def commentdicthistsetup(): ################
     count5 = 0
     
     for keys in ratingdict:
-        cmtratinglist.append(commentdict[keys])
+        avgcmtlist.append(cmtdict[keys])
 
-    avgratinglist = [[(float(j)) for j in i] for i in avgratinglist]
+    avgcmtlist = [[(float(j)) for j in i] for i in avgcmtlist]
     
-    for lists in avgratinglist:
+    for lists in avgcmtlist:
         #print(lists)
-        avgrating = sum(lists)/len(lists)
-        avgratinghist.append(avgrating)
+        avgcmtcount = sum(lists)/len(lists)
+        avgcmthist.append(avgcmtcount)
                 
     
-    for values in avgratinghist:
-        if values >= 0 and values < 1:
+    for values in avgcmthist:
+        if values >= 0 and values < 100:
             count1 = count1 + 1
-        if values >= 1 and values < 2:
+        if values >= 100 and values < 500:
             count2 = count1 + 1
-        if values >= 2 and values < 3:
+        if values >= 500 and values < 1000:
             count3 = count3 + 1
-        if values >= 3 and values < 4:
+        if values >= 1000 and values < 2000:
             count4 = count4 + 1
-        if values >= 4 and values < 5:
+        if values >= 3000 and values < 10000:
             count5 = count5 + 1
             
-    displaycount1 = int(count1/20)
-    displaycount2 = int(count2/20)
-    displaycount3 = int(count3/20)
-    displaycount4 = int(count4/20)
-    displaycount5 = int(count5/20)
+    displaycount1 = int(count1/10)
+    displaycount2 = int(count2/10)
+    displaycount3 = int(count3/10)
+    displaycount4 = int(count4/10)
+    displaycount5 = int(count5/10)
     print(count1)
     print(count2)
     
@@ -224,7 +225,16 @@ def commentdicthistsetup(): ################
     print("Count4" + ("*"*displaycount4))
     print("Count5" + ("*"*displaycount5))
 
+## Begin Code ##
+print('Welcome to the Youtube Web Crawl Analyzer.')
+time.sleep(2)
+print("Please choose an option: \n")
+print("1. Choice 1 \n")
+print("2. Choice 2 \n")
+print("3. Choice 3 \n")
 
+
+print()
 with open('data1.txt') as d:
     data_lines = d.readlines()
 
@@ -356,50 +366,8 @@ graphcomparebottom(bottomgraphlist, viewdict, j)
 ## Histograms
 
 #Here to graph the rating distribution
-# avgratinglist = []
-# avgratinghist = []
-# testname = 'Rp198k984Yw'
-# for keys in ratingdict:
-#         avgratinglist.append(ratingdict[keys])
-
-# avgratinglist = [[(float(j)) for j in i] for i in avgratinglist]
-
-# for lists in avgratinglist:
-#     #print(lists)
-#     avgrating = sum(lists)/len(lists)
-#     avgratinghist.append(avgrating)
-            
-
-# count1= 0
-# count2 = 0
-# count3 = 0
-# count4 = 0
-# count5 = 0
-
-# for values in avgratinghist:
-#     if values >= 0 and values < 1:
-#         count1 = count1 + 1
-#     if values >= 1 and values < 2:
-#         count2 = count1 + 1
-#     if values >= 2 and values < 3:
-#         count3 = count3 + 1
-#     if values >= 3 and values < 4:
-#         count4 = count4 + 1
-#     if values >= 4 and values < 5:
-#         count5 = count5 + 1
-        
-# displaycount1 = int(count1/20)
-# displaycount2 = int(count2/20)
-# displaycount3 = int(count3/20)
-# displaycount4 = int(count4/20)
-# displaycount5 = int(count5/20)
-# print(count1)
-# print(count2)
-
-# print("Count1" + ("*"*displaycount1))
-# print("Count2" + ("*"*displaycount2))
-# print("Count3" + ("*"*displaycount3))
-# print("Count4" + ("*"*displaycount4))
-# print("Count5" + ("*"*displaycount5))
 
 ratinghistogramsetup(ratingdict)
+
+# Graph Comment count distribution
+commentdicthistsetup(commentdict)
