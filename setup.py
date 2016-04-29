@@ -338,11 +338,11 @@ def ratinghistogramsetup(ratingdictionary): #Creating the histogram for ratings.
         if values >= 4 and values < 5:
             count5 = count5 + 1
             
-    displaycount1 = int(count1/400)
-    displaycount2 = int(count2/400)
-    displaycount3 = int(count3/400)
-    displaycount4 = int(count4/400)
-    displaycount5 = int(count5/400)
+    displaycount1 = int(count1/20)
+    displaycount2 = int(count2/20)
+    displaycount3 = int(count3/20)
+    displaycount4 = int(count4/20)
+    displaycount5 = int(count5/20)
 
     
     print("\n") #Making Histogram
@@ -387,11 +387,11 @@ def commentdicthistsetup(cmtdict): #Creating the comment histogram
         if values >= 3000 and values < 10000:
             count5 = count5 + 1
             
-    displaycount1 = int(count1/30)
-    displaycount2 = int(count2/30)
-    displaycount3 = int(count3/30)
-    displaycount4 = int(count4/30)
-    displaycount5 = int(count5/30)
+    displaycount1 = int(count1/15)
+    displaycount2 = int(count2/15)
+    displaycount3 = int(count3/15)
+    displaycount4 = int(count4/15)
+    displaycount5 = int(count5/15)
     
     print("\n") #Producing histogram
     print("DISTRIBUTION OF AVERAGE COMMENT COUNTS")
